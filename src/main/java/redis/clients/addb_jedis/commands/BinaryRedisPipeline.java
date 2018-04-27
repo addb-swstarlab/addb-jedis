@@ -11,6 +11,15 @@ import java.util.Map;
 import java.util.Set;
 
 public interface BinaryRedisPipeline {
+	
+	/*
+	 * addb JH
+	 * add binary pipeline fp commands
+	 */
+  Response<byte[]> fpread(byte[] key);
+	
+  Response<String> fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
+  
   Response<Long> append(byte[] key, byte[] value);
 
   Response<List<byte[]>> blpop(byte[] arg);

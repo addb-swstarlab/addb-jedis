@@ -10,6 +10,15 @@ import java.util.Map;
 import java.util.Set;
 
 public interface RedisPipeline {
+
+	/*
+	 * addb JH
+	 * add pipeline fp commands
+	 */
+  Response<String> fpread(String key);
+  
+  Response<String> fpwrite(String key, String partition, String numOfColumn, String indexColumn);
+
   Response<Long> append(String key, String value);
 
   Response<List<String>> blpop(String arg);

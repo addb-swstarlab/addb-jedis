@@ -17,6 +17,36 @@ public abstract class PipelineBase extends Queable implements BinaryRedisPipelin
 
   protected abstract Client getClient(byte[] key);
 
+  /*
+   * addb JH
+   * add pipeline fpread, fpwrite commands
+   * (non-Javadoc)
+   * @see redis.clients.addb_jedis.commands.RedisPipeline#fpread(java.lang.String)
+   */
+  @Override
+  public Response<String> fpread(final String key) {
+    getClient(key).fpread(key);
+    return getResponse(BuilderFactory.STRING);
+  }
+
+  @Override
+  public Response<byte[]> fpread(final byte[] key) {
+    getClient(key).fpread(key);
+    return getResponse(BuilderFactory.BYTE_ARRAY);
+  }
+  
+  @Override
+  public Response<String> fpwrite(final String key, final String partition, final String numOfColumn, final String indexColumn) {
+    getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);
+    return getResponse(BuilderFactory.STRING);
+  }
+
+  @Override
+  public Response<String> fpwrite(final byte[] key, final byte[] partition, final byte[] numOfColumn, final byte[] indexColumn) {
+    getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);;
+    return getResponse(BuilderFactory.STRING);
+  }
+  
   @Override
   public Response<Long> append(final String key, final String value) {
     getClient(key).append(key, value);
