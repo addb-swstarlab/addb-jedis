@@ -9,6 +9,7 @@ import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 
 /**
  * Common interface for sharded and non-sharded Jedis
@@ -20,7 +21,7 @@ public interface JedisCommands {
 	 * register fpread, fpwrite commands to JedisCommands
 	 */
   String fpread(String key);
-  String fpwrite(String key, String partition, String numOfColumn, String indexColumn);
+  String fpwrite(CommandArgsObject commandArgsObject);
   
   String set(String key, String value);
 

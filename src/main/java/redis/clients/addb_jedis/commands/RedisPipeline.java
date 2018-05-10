@@ -4,6 +4,7 @@ import redis.clients.addb_jedis.*;
 import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public interface RedisPipeline {
 	 */
   Response<String> fpread(String key);
   
-  Response<String> fpwrite(String key, String partition, String numOfColumn, String indexColumn);
+  Response<String> fpwrite(CommandArgsObject commandArgsObject);
 
   Response<Long> append(String key, String value);
 

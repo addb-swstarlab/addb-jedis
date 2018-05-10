@@ -10,6 +10,7 @@ import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 
 public abstract class PipelineBase extends Queable implements BinaryRedisPipeline, RedisPipeline {
 
@@ -23,6 +24,7 @@ public abstract class PipelineBase extends Queable implements BinaryRedisPipelin
    * (non-Javadoc)
    * @see redis.clients.addb_jedis.commands.RedisPipeline#fpread(java.lang.String)
    */
+  /*
   @Override
   public Response<String> fpread(final String key) {
     getClient(key).fpread(key);
@@ -43,9 +45,32 @@ public abstract class PipelineBase extends Queable implements BinaryRedisPipelin
 
   @Override
   public Response<String> fpwrite(final byte[] key, final byte[] partition, final byte[] numOfColumn, final byte[] indexColumn) {
-    getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);;
+    getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);
     return getResponse(BuilderFactory.STRING);
+  } */
+  @Override
+  public Response<String> fpread(final String key) {
+	  getClient(key).fpread(key);
+	  return getResponse(BuilderFactory.STRING);
   }
+  
+  @Override
+  public Response<byte[]> fpread(final byte[] key) {
+	  getClient(key).fpread(key);
+	  return getResponse(BuilderFactory.BYTE_ARRAY);
+  }  
+  @Override
+  public Response<String> fpwrite(final CommandArgsObject commandArgsObject) {
+	  final String key = commandArgsObject.getDataKey();
+	  getClient(key).fpwrite(commandArgsObject);
+	  return getResponse(BuilderFactory.STRING);
+  }
+  
+//  @Override
+//  public Response<String> fpwrite(final byte[] key, final byte[] partition, final byte[] numOfColumn, final byte[] indexColumn) {
+//	  getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);
+//	  return getResponse(BuilderFactory.STRING);
+//  }
   
   @Override
   public Response<Long> append(final String key, final String value) {

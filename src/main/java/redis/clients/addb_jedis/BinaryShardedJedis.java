@@ -68,11 +68,11 @@ public class BinaryShardedJedis extends Sharded<Jedis, JedisShardInfo> implement
    * (non-Javadoc)
    * @see redis.clients.addb_jedis.commands.BinaryJedisCommands#fpwrite(byte[], byte[], byte[], byte[])
    */
-  @Override
-  public String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn) {
-	  Jedis j = getShard(key);
-	  return j.fpwrite(key, partition, numOfColumn, indexColumn);
-  }
+//  @Override
+//  public String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn) {
+//	  Jedis j = getShard(key);
+//	  return j.fpwrite(key, partition, numOfColumn, indexColumn);
+//  }
   
   @Override
   public String set(final byte[] key, final byte[] value) {
