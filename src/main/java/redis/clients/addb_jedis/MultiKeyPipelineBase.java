@@ -13,6 +13,20 @@ public abstract class MultiKeyPipelineBase extends PipelineBase implements
   protected Client client = null;
 
   @Override
+  public Response<Set<String>> getMeta(String pattern) {
+	 System.out.println("getMeta in MultiKeyPipelineBase String");
+    getClient(pattern).getMeta(pattern);
+    return getResponse(BuilderFactory.STRING_SET);
+  }
+
+  @Override
+  public Response<Set<byte[]>> getMeta(byte[] pattern) {
+	 System.out.println("getMeta in MultiKeyPipelineBase byte");
+    getClient(pattern).getMeta(pattern);
+    return getResponse(BuilderFactory.BYTE_ARRAY_ZSET);
+  }
+  
+  @Override
   public Response<List<String>> brpop(String... args) {
     client.brpop(args);
     return getResponse(BuilderFactory.STRING_LIST);

@@ -17,8 +17,7 @@ import redis.clients.addb_jedis.params.ZIncrByParams;
 public interface BinaryJedisCommands {
 	
 	/*
-	 * addb JH
-	 * register fpread, fpwrite commands to BinaryJedisCommands
+	 * addb JH register fpread, fpwrite commands to BinaryJedisCommands
 	 */
   // fpread is Get command fommat. It should be changed
   byte[] fpread(byte[] key);

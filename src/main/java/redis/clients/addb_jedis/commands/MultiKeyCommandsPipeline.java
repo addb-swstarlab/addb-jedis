@@ -12,6 +12,8 @@ import java.util.Set;
  * Multikey related commands (these are split out because they are non-shardable)
  */
 public interface MultiKeyCommandsPipeline {
+  Response<Set<String>> getMeta(String pattern);
+	
   Response<Long> del(String... keys);
 
   Response<Long> unlink(String... keys);

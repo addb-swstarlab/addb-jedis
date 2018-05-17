@@ -15,7 +15,7 @@ import redis.clients.addb_jedis.params.ZIncrByParams;
  */
 public interface JedisCommands {
 	
-	/*
+   /* 
 	 * addb JH
 	 * register fpread, fpwrite commands to JedisCommands
 	 */

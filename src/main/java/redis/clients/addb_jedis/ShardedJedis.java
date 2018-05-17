@@ -34,6 +34,7 @@ public class ShardedJedis extends BinaryShardedJedis implements JedisCommands, C
     super(shards, algo, keyTagPattern);
   }
 
+  
   /*
    * addb JH
    * fpread

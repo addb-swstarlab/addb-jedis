@@ -106,6 +106,18 @@ public class BinaryClient extends Connection {
       }
     }
   }
+  
+  /*
+	 * addb WK
+	 * getMeta function
+	 * addb/src/t_relational.c
+	 * fpread Param not yet..
+	 * Thus, test KEYS command
+	 */
+  public void getMeta(final byte[] pattern) {
+	   System.out.println("getMeta in Binary Client");
+	    sendCommand(KEYS, pattern);
+	  }
 
   /*
 	 * addb JH

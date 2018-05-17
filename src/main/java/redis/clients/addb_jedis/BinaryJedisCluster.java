@@ -80,6 +80,25 @@ public class BinaryJedisCluster implements BinaryJedisClusterCommands,
   }
 
   @Override
+  public Set<byte[]> getMeta(final byte[] pattern) {
+	 System.out.println("getMeta in Binary Jedis Cluster");
+    if (pattern == null || pattern.length == 0) {
+      throw new IllegalArgumentException(this.getClass().getSimpleName()
+          + " only supports KEYS commands with non-empty patterns");
+    }
+    if (!JedisClusterHashTagUtil.isClusterCompliantMatchPattern(pattern)) {
+      throw new IllegalArgumentException(this.getClass().getSimpleName()
+          + " only supports KEYS commands with patterns containing hash-tags ( curly-brackets enclosed strings )");
+    }
+    return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxAttempts) {
+      @Override
+      public Set<byte[]> execute(Jedis connection) {
+        return connection.getMeta(pattern);
+      }
+    }.runBinary(pattern);
+  }
+  
+  @Override
   public String set(final byte[] key, final byte[] value) {
     return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {
       @Override

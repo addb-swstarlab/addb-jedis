@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Set;
 
 public interface MultiKeyBinaryCommands {
+
+  Set<byte[]> getMeta(byte[] pattern);	
+	
   Long del(byte[]... keys);
 
   Long unlink(byte[]... keys);

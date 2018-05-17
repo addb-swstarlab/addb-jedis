@@ -103,6 +103,25 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
 }
 
   @Override
+  public Set<String> getMeta(final String pattern) {
+	   System.out.println("getMeta in Jedis Cluster");
+    if (pattern == null || pattern.isEmpty()) {
+      throw new IllegalArgumentException(this.getClass().getSimpleName()
+          + " only supports KEYS commands with non-empty patterns");
+    }
+    if (!JedisClusterHashTagUtil.isClusterCompliantMatchPattern(pattern)) {
+      throw new IllegalArgumentException(this.getClass().getSimpleName()
+          + " only supports KEYS commands with patterns containing hash-tags ( curly-brackets enclosed strings )");
+    }
+    return new JedisClusterCommand<Set<String>>(connectionHandler, maxAttempts) {
+      @Override
+      public Set<String> execute(Jedis connection) {
+        return connection.getMeta(pattern);
+      }
+    }.run(pattern);
+  }
+  
+  @Override
   public String set(final String key, final String value) {
     return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {
       @Override

@@ -10,8 +10,15 @@ import redis.clients.addb_jedis.ZParams;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.SafeEncoder;
 
 public interface Commands {
+	
+  void getMeta(String key);
+	
+  void fpread(final String key); 
+  
+  void fpwrite(final String key, final String partition, final String numOfColumn, final String indexColumn);
 
   void set(String key, String value);
 

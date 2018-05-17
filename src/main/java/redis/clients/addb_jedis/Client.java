@@ -42,6 +42,12 @@ public class Client extends BinaryClient implements Commands {
       final HostnameVerifier hostnameVerifier) {
     super(host, port, ssl, sslSocketFactory, sslParameters, hostnameVerifier);
   }
+  
+  @Override
+  public void getMeta(final String pattern) {
+	 System.out.println("getMeta in Client");
+    getMeta(SafeEncoder.encode(pattern));
+  }
   /* 
    * addb JH
    * add fpread commands to Client
