@@ -28,6 +28,7 @@ import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 import redis.clients.addb_jedis.util.JedisByteHashMap;
 import redis.clients.addb_jedis.util.JedisURIHelper;
 
@@ -201,12 +202,12 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
    * (non-Javadoc)
    * @see redis.clients.addb_jedis.commands.BinaryJedisCommands#fpwrite(byte[], byte[], byte[], byte[])
    */
-  @Override
-  public String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn) {
-	  checkIsInMultiOrPipeline();
-	  client.fpwrite(key, partition, numOfColumn, indexColumn);
-	  return client.getStatusCodeReply();
-  }
+//  @Override
+//  public String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn) {
+//	  checkIsInMultiOrPipeline();
+//	  client.fpwrite(key, partition, numOfColumn, indexColumn);
+//	  return client.getStatusCodeReply();
+//  }
   @Override
   public String ping() {
     checkIsInMultiOrPipeline();
@@ -3880,4 +3881,9 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
     client.hstrlen(key, field);
     return client.getIntegerReply();
   }
+
+public String fpwrite(CommandArgsObject commandArgsObject) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

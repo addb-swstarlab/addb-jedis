@@ -253,6 +253,7 @@ redis/clients/addb_jedis/BinaryJedisCluster$162.class
 redis/clients/addb_jedis/BinaryJedisCluster$26.class
 redis/clients/addb_jedis/BinaryJedisCluster$110.class
 redis/clients/addb_jedis/JedisCluster$42.class
+redis/clients/addb_jedis/util/RelationInfoPackage.class
 redis/clients/addb_jedis/BinaryJedisCluster$58.class
 redis/clients/addb_jedis/BinaryJedis$SetFromList.class
 redis/clients/addb_jedis/JedisCluster$1.class
@@ -400,6 +401,7 @@ redis/clients/addb_jedis/BuilderFactory$12.class
 redis/clients/addb_jedis/ShardedJedisPool.class
 redis/clients/addb_jedis/JedisCluster$45.class
 redis/clients/addb_jedis/JedisCluster$163.class
+redis/clients/addb_jedis/util/CommandArgsObject.class
 redis/clients/addb_jedis/util/JedisClusterHashTagUtil.class
 redis/clients/addb_jedis/util/KeyMergeUtil.class
 redis/clients/addb_jedis/JedisCluster$85.class

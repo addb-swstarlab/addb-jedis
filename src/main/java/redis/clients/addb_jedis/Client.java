@@ -18,6 +18,7 @@ import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
 import redis.clients.addb_jedis.util.SafeEncoder;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 
 public class Client extends BinaryClient implements Commands {
 
@@ -59,8 +60,17 @@ public class Client extends BinaryClient implements Commands {
    * addb JH
    * add fpwrite commands to Client
    */
-  public void fpwrite(final String key, final String partition, final String numOfColumn, final String indexColumn) {
-	  fpwrite(SafeEncoder.encode(key), SafeEncoder.encode(partition), SafeEncoder.encode(numOfColumn), SafeEncoder.encode(indexColumn));
+  public void fpwrite(final CommandArgsObject commandArgsObject) {
+	  final String key = commandArgsObject.getDataKey();
+	  final String partition = commandArgsObject.getPartitionInfo();
+	  final String numOfColumn = commandArgsObject.getColumnCount();
+	  final String indexColumn = "0";
+	  final List<String> data = commandArgsObject.getData();
+	  final byte[][]byteData = new byte[data.size()][];
+	  for (int i=0; i<byteData.length; i++) {
+		  byteData[i] = SafeEncoder.encode(data.get(i)!= null ? data.get(i) : "");
+	  }
+	  fpwrite(SafeEncoder.encode(key), SafeEncoder.encode(partition), SafeEncoder.encode(numOfColumn), SafeEncoder.encode(indexColumn), byteData);
   }
   @Override
   public void set(final String key, final String value) {

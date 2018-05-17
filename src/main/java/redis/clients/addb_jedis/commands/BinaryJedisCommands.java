@@ -21,7 +21,7 @@ public interface BinaryJedisCommands {
 	 */
   // fpread is Get command fommat. It should be changed
   byte[] fpread(byte[] key);
-  String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
+//  String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
   
   String set(byte[] key, byte[] value);
 

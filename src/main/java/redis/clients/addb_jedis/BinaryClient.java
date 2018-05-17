@@ -1,5 +1,6 @@
 package redis.clients.addb_jedis;
 
+import static java.lang.System.arraycopy;
 import static redis.clients.addb_jedis.Protocol.toByteArray;
 import static redis.clients.addb_jedis.Protocol.Command.*;
 import static redis.clients.addb_jedis.Protocol.Keyword.ENCODING;
@@ -134,14 +135,22 @@ public class BinaryClient extends Connection {
 	 * addb JH
 	 * fpwrite function
 	 * addb/src/t_relational.c
-	 * 	fpWrite Param List ==> Key : %s, partition :%s, num_of_column : %s, indexColumn : %s"
+	 * 	fpWrite Param List ==> Key : %s, partition :%s, num_of_column : %s, indexColumn : %s, data : %s"
 	 * @param key dataKeyInfo
 	 * @param partition partitionInfo
 	 * @param numOfColumn the number of column
 	 * @param indexColumn filter index column
+	 * @param data rowData
 	 */
-	public void fpwrite(final byte[] key, final byte[] partition, final byte[] numOfColumn, final byte[] indexColumn) {
-		sendCommand(FPWRITE, key, partition, numOfColumn, indexColumn);
+	public void fpwrite(final byte[] key, final byte[] partition, 
+			final byte[] numOfColumn, final byte[] indexColumn, final byte[][] data) {
+		final byte[][] parameters = new byte[4+data.length][];
+		parameters[0] = key;
+		parameters[1] = partition;
+		parameters[2] = numOfColumn;
+		parameters[3] = indexColumn;
+		arraycopy(data, 0, parameters, 4, data.length);
+		sendCommand(FPWRITE, parameters);
 	}
 	
   public void ping() {

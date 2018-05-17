@@ -18,7 +18,7 @@ public interface BinaryRedisPipeline {
 	 */
   Response<byte[]> fpread(byte[] key);
 	
-  Response<String> fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
+//  Response<String> fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
   
   Response<Long> append(byte[] key, byte[] value);
 

@@ -12,6 +12,7 @@ import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 import redis.clients.addb_jedis.util.Hashing;
 
 public class ShardedJedis extends BinaryShardedJedis implements JedisCommands, Closeable {
@@ -49,9 +50,10 @@ public class ShardedJedis extends BinaryShardedJedis implements JedisCommands, C
    * fpwrite
    */
   @Override
-  public String fpwrite(final String key, final String partition, final String numOfColumn, final String indexColumn) {
+  public String fpwrite(final CommandArgsObject commandArgsObject) {
+	  String key = commandArgsObject.getDataKey();
 	  Jedis j = getShard(key);
-	  return j.fpwrite(key, partition, numOfColumn, indexColumn);
+	  return j.fpwrite(commandArgsObject);
   }
   @Override
   public String set(final String key, final String value) {

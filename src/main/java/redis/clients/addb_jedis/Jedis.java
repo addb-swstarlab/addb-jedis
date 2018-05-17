@@ -25,6 +25,7 @@ import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 import redis.clients.addb_jedis.util.SafeEncoder;
 import redis.clients.addb_jedis.util.Slowlog;
 
@@ -149,9 +150,9 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
    * fpwrite
    */
   @Override
-  public String fpwrite(final String key, final String partition, final String numOfColumn, final String indexColumn) {
+  public String fpwrite(final CommandArgsObject commandArgsObject) {
 	  checkIsInMultiOrPipeline();
-	  client.fpwrite(key, partition, numOfColumn, indexColumn);
+	  client.fpwrite(commandArgsObject);
 	  return client.getStatusCodeReply();
   }
   /**
