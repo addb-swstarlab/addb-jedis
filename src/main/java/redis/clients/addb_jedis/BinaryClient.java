@@ -110,25 +110,25 @@ public class BinaryClient extends Connection {
   
   /*
 	 * addb WK
-	 * getMeta function
+	 * metakeys function
 	 * addb/src/t_relational.c
-	 * fpread Param not yet..
+	 * fpscan Param not yet..
 	 * Thus, test KEYS command
 	 */
-  public void getMeta(final byte[] pattern) {
-	   System.out.println("getMeta in Binary Client");
-	    sendCommand(KEYS, pattern);
+  public void metakeys(final byte[] pattern) {
+	   System.out.println("metakeys in Binary Client");
+	    sendCommand(METAKEYS, pattern);
 	  }
 
   /*
 	 * addb JH
-	 * fpread function
+	 * fpscan function
 	 * addb/src/t_relational.c
-	 * fpread Param not yet..
+	 * fpscan Param not yet..
 	 * Thus, test GET command
 	 */
-	public void fpread(final byte[] key) {
-//		sendCommand(FPREAD);
+	public void fpscan(final byte[] key) {
+//		sendCommand(fpscan);
 		sendCommand(GET, key);
 	}
 	/*

@@ -17,10 +17,10 @@ import redis.clients.addb_jedis.params.ZIncrByParams;
 public interface BinaryJedisCommands {
 	
 	/*
-	 * addb JH register fpread, fpwrite commands to BinaryJedisCommands
+	 * addb JH register fpscan, fpwrite commands to BinaryJedisCommands
 	 */
-  // fpread is Get command fommat. It should be changed
-  byte[] fpread(byte[] key);
+  // fpscan is Get command fommat. It should be changed
+//  byte[] fpscan(byte[] key);
 //  String fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
   
   String set(byte[] key, byte[] value);

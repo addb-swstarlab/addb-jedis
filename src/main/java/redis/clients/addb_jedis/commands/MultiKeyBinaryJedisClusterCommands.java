@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface MultiKeyBinaryJedisClusterCommands {
-  Set<byte[]> getMeta(byte[] pattern);
+  Set<byte[]> metakeys(byte[] pattern);
 	
   Long del(byte[]... keys);
 

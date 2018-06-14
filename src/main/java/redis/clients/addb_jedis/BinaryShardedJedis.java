@@ -56,13 +56,13 @@ public class BinaryShardedJedis extends Sharded<Jedis, JedisShardInfo> implement
   /*
    * addb JH
    * (non-Javadoc)
-   * @see redis.clients.addb_jedis.commands.BinaryJedisCommands#fpread(byte[])
+   * @see redis.clients.addb_jedis.commands.BinaryJedisCommands#fpscan(byte[])
    */
-  @Override
-  public byte[] fpread(byte[] key) {
-	  Jedis j = getShard(key);
-	  return j.get(key);
-  }
+//  @Override
+//  public byte[] fpscan(byte[] key) {
+//	  Jedis j = getShard(key);
+//	  return j.get(key);
+//  }
   /*
    * addb JH
    * (non-Javadoc)

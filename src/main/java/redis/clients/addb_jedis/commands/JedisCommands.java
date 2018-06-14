@@ -18,9 +18,9 @@ public interface JedisCommands {
 	
    /* 
 	 * addb JH
-	 * register fpread, fpwrite commands to JedisCommands
+	 * register fpscan, fpwrite commands to JedisCommands
 	 */
-  String fpread(String key);
+  String fpscan(String key);
   String fpwrite(CommandArgsObject commandArgsObject);
   
   String set(String key, String value);

@@ -45,16 +45,16 @@ public class Client extends BinaryClient implements Commands {
   }
   
   @Override
-  public void getMeta(final String pattern) {
-	 System.out.println("getMeta in Client");
-    getMeta(SafeEncoder.encode(pattern));
+  public void metakeys(final String pattern) {
+	 System.out.println("metakeys in Client");
+    metakeys(SafeEncoder.encode(pattern));
   }
   /* 
    * addb JH
-   * add fpread commands to Client
+   * add fpscan commands to Client
    */
-  public void fpread(final String key) {
-	  fpread(SafeEncoder.encode(key));
+  public void fpscan(final String key) {
+	  fpscan(SafeEncoder.encode(key));
   }
   /* 
    * addb JH

@@ -20,20 +20,20 @@ public abstract class PipelineBase extends Queable implements BinaryRedisPipelin
 
   /*
    * addb JH
-   * add pipeline fpread, fpwrite commands
+   * add pipeline fpscan, fpwrite commands
    * (non-Javadoc)
-   * @see redis.clients.addb_jedis.commands.RedisPipeline#fpread(java.lang.String)
+   * @see redis.clients.addb_jedis.commands.RedisPipeline#fpscan(java.lang.String)
    */
   /*
   @Override
-  public Response<String> fpread(final String key) {
-    getClient(key).fpread(key);
+  public Response<String> fpscan(final String key) {
+    getClient(key).fpscan(key);
     return getResponse(BuilderFactory.STRING);
   }
 
   @Override
-  public Response<byte[]> fpread(final byte[] key) {
-    getClient(key).fpread(key);
+  public Response<byte[]> fpscan(final byte[] key) {
+    getClient(key).fpscan(key);
     return getResponse(BuilderFactory.BYTE_ARRAY);
   }
   
@@ -49,14 +49,14 @@ public abstract class PipelineBase extends Queable implements BinaryRedisPipelin
     return getResponse(BuilderFactory.STRING);
   } */
   @Override
-  public Response<String> fpread(final String key) {
-	  getClient(key).fpread(key);
+  public Response<String> fpscan(final String key) {
+	  getClient(key).fpscan(key);
 	  return getResponse(BuilderFactory.STRING);
   }
   
   @Override
-  public Response<byte[]> fpread(final byte[] key) {
-	  getClient(key).fpread(key);
+  public Response<byte[]> fpscan(final byte[] key) {
+	  getClient(key).fpscan(key);
 	  return getResponse(BuilderFactory.BYTE_ARRAY);
   }  
   @Override

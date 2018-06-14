@@ -124,25 +124,25 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
 
   /*
    * addb WK
-   * getMeta
+   * metakeys
    */
   
   @Override
-  public Set<String> getMeta(String pattern) {
-	 System.out.println("getMeta in Jedis");
+  public Set<String> metakeys(String pattern) {
+	 System.out.println("metakeys in Jedis");
     checkIsInMultiOrPipeline();
-    client.getMeta(pattern);
+    client.metakeys(pattern);
     return BuilderFactory.STRING_SET.build(client.getBinaryMultiBulkReply());
   }
 
   /*
    * addb JH
-   * fpread
+   * fpscan
    */
   @Override
-  public String fpread(final String key) {
+  public String fpscan(final String key) {
 	  checkIsInMultiOrPipeline();
-	  client.fpread(key);
+	  client.fpscan(key);
 	  return client.getBulkReply();
   }
   /*

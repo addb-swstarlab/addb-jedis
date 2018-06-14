@@ -16,7 +16,7 @@ public interface RedisPipeline {
 	 * addb JH
 	 * add pipeline fp commands
 	 */
-  Response<String> fpread(String key);
+  Response<String> fpscan(String key);
   
   Response<String> fpwrite(CommandArgsObject commandArgsObject);
 

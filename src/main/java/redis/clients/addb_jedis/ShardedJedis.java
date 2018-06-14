@@ -38,10 +38,10 @@ public class ShardedJedis extends BinaryShardedJedis implements JedisCommands, C
   
   /*
    * addb JH
-   * fpread
+   * fpscan
    */
   @Override
-  public String fpread(final String key) {
+  public String fpscan(final String key) {
 	  Jedis j = getShard(key);
 	  return j.get(key);
   }

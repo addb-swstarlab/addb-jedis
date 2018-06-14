@@ -243,7 +243,7 @@ public final class Protocol {
 
   public static enum Command implements ProtocolCommand {
 	  // addb JH
-	  FPREAD, FPWRITE,
+	  fpscan, FPWRITE, METAKEYS,
 	 // existing commands
     PING, SET, GET, QUIT, EXISTS, DEL, UNLINK, TYPE, FLUSHDB, KEYS, RANDOMKEY, RENAME, RENAMENX, RENAMEX, 
     DBSIZE, EXPIRE, EXPIREAT, TTL, SELECT, MOVE, FLUSHALL, GETSET, MGET, SETNX, SETEX, MSET, MSETNX, 

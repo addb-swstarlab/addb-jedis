@@ -12,7 +12,7 @@ import java.util.Set;
  * Multikey related commands (these are split out because they are non-shardable)
  */
 public interface MultiKeyCommandsPipeline {
-  Response<Set<String>> getMeta(String pattern);
+  Response<Set<String>> metakeys(String pattern);
 	
   Response<Long> del(String... keys);
 

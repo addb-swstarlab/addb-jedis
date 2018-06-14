@@ -17,6 +17,7 @@ import java.util.Set;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 import redis.clients.addb_jedis.params.SetParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 import redis.clients.addb_jedis.util.JedisClusterHashTagUtil;
 
 public class JedisCluster extends BinaryJedisCluster implements JedisClusterCommands,
@@ -103,8 +104,8 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
 }
 
   @Override
-  public Set<String> getMeta(final String pattern) {
-	   System.out.println("getMeta in Jedis Cluster");
+  public Set<String> metakeys(final String pattern) {
+	   System.out.println("metakeys in Jedis Cluster");
     if (pattern == null || pattern.isEmpty()) {
       throw new IllegalArgumentException(this.getClass().getSimpleName()
           + " only supports KEYS commands with non-empty patterns");
@@ -116,11 +117,30 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
     return new JedisClusterCommand<Set<String>>(connectionHandler, maxAttempts) {
       @Override
       public Set<String> execute(Jedis connection) {
-        return connection.getMeta(pattern);
+        return connection.metakeys(pattern);
       }
     }.run(pattern);
   }
-  
+  public String fpwrite(final CommandArgsObject commandArgsObject) {
+      // get datakey
+      final String key = commandArgsObject.getDataKey();
+      return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {
+          @Override
+          public String execute(Jedis connection) {
+            return connection.fpwrite(commandArgsObject);
+          }
+        }.run(key);
+}
+  public String fpscan(final CommandArgsObject commandArgsObject) {
+      // get datakey
+      final String key = commandArgsObject.getDataKey();
+      return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {
+          @Override
+          public String execute(Jedis connection) {
+            return connection.fpwrite(commandArgsObject);
+          }
+        }.run(key);
+}
   @Override
   public String set(final String key, final String value) {
     return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {

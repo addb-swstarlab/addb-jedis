@@ -15,9 +15,9 @@ import redis.clients.addb_jedis.util.SafeEncoder;
 
 public interface Commands {
 	
-  void getMeta(String key);
+  void metakeys(String pattern);
 	
-  void fpread(final String key); 
+  void fpscan(final String key); 
   
   void fpwrite(final CommandArgsObject commandArgsObject);
 

@@ -176,27 +176,27 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
   }
   /*
    * addb WK
-   * getMeta
+   * metakeys
    */
   @Override
-  public Set<byte[]> getMeta(final byte[] pattern) {
-	 System.out.println("getMeta in Binary Jedis");
+  public Set<byte[]> metakeys(final byte[] pattern) {
+	 System.out.println("metakeys in Binary Jedis");
     checkIsInMultiOrPipeline();
-    client.getMeta(pattern);
+    client.metakeys(pattern);
     return SetFromList.of(client.getBinaryMultiBulkReply());
   }
   
   /*
    * addb JH
    * (non-Javadoc)
-   * @see redis.clients.addb_jedis.commands.BinaryJedisCommands#fpread(byte[])
+   * @see redis.clients.addb_jedis.commands.BinaryJedisCommands#fpscan(byte[])
    */
-  @Override
-  public byte[] fpread(byte[] key) {
-	  checkIsInMultiOrPipeline();
-	  client.fpread(key);
-	  return client.getBinaryBulkReply();
-  }
+//  @Override
+//  public byte[] fpscan(byte[] key) {
+//	  checkIsInMultiOrPipeline();
+//	  client.fpscan(key);
+//	  return client.getBinaryBulkReply();
+//  }
   /*
    * addb JH
    * (non-Javadoc)

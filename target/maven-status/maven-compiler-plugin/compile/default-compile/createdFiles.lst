@@ -156,6 +156,7 @@ redis/clients/addb_jedis/BinaryJedisCluster$146.class
 redis/clients/addb_jedis/BinaryJedisCluster$167.class
 redis/clients/addb_jedis/JedisCluster$169.class
 redis/clients/addb_jedis/JedisCluster$129.class
+redis/clients/addb_jedis/JedisCluster$183.class
 redis/clients/addb_jedis/commands/RedisPipeline.class
 redis/clients/addb_jedis/JedisCluster$65.class
 redis/clients/addb_jedis/JedisCluster$123.class
@@ -196,6 +197,7 @@ redis/clients/addb_jedis/BinaryJedisCluster$81.class
 redis/clients/addb_jedis/BinaryJedisPubSub.class
 redis/clients/addb_jedis/BinaryJedisCluster$102.class
 redis/clients/addb_jedis/JedisClusterConnectionHandler.class
+redis/clients/addb_jedis/JedisCluster$182.class
 redis/clients/addb_jedis/JedisCluster$117.class
 redis/clients/addb_jedis/Jedis.class
 redis/clients/addb_jedis/JedisCluster$59.class
@@ -228,6 +230,7 @@ redis/clients/addb_jedis/JedisSlotBasedConnectionHandler.class
 redis/clients/addb_jedis/BinaryJedisCluster$76.class
 redis/clients/addb_jedis/JedisCluster$131.class
 redis/clients/addb_jedis/JedisCluster$118.class
+redis/clients/addb_jedis/JedisCluster$181.class
 redis/clients/addb_jedis/JedisCluster$57.class
 redis/clients/addb_jedis/JedisCluster$125.class
 redis/clients/addb_jedis/BinaryJedisCluster$83.class
@@ -282,6 +285,7 @@ redis/clients/addb_jedis/JedisCluster$120.class
 redis/clients/addb_jedis/BinaryJedisCluster$103.class
 redis/clients/addb_jedis/JedisCluster$106.class
 redis/clients/addb_jedis/JedisCluster$90.class
+redis/clients/addb_jedis/BinaryJedisCluster$183.class
 redis/clients/addb_jedis/BinaryJedisCluster$143.class
 redis/clients/addb_jedis/util/Pool.class
 redis/clients/addb_jedis/JedisCluster$138.class
