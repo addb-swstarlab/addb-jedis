@@ -40,21 +40,22 @@ public class ShardedJedis extends BinaryShardedJedis implements JedisCommands, C
    * addb JH
    * fpscan
    */
-  @Override
-  public String fpscan(final String key) {
-	  Jedis j = getShard(key);
-	  return j.get(key);
-  }
+//  @Override
+//  public String fpscan(final CommandArgsObject commandArgsObject) {
+//	  String key = commandArgsObject.getDataKey();
+//	  Jedis j = getShard(key);
+//	  return j.get(key);
+//  }
   /*
    * addb JH
    * fpwrite
    */
-  @Override
-  public String fpwrite(final CommandArgsObject commandArgsObject) {
-	  String key = commandArgsObject.getDataKey();
-	  Jedis j = getShard(key);
-	  return j.fpwrite(commandArgsObject);
-  }
+//  @Override
+//  public String fpwrite(final CommandArgsObject commandArgsObject) {
+//	  String key = commandArgsObject.getDataKey();
+//	  Jedis j = getShard(key);
+//	  return j.fpwrite(commandArgsObject);
+//  }
   @Override
   public String set(final String key, final String value) {
     Jedis j = getShard(key);

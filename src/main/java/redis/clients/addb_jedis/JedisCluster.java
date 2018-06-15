@@ -130,17 +130,26 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
             return connection.fpwrite(commandArgsObject);
           }
         }.run(key);
-}
-  public String fpscan(final CommandArgsObject commandArgsObject) {
+  }
+  public List<String> fpscan(final CommandArgsObject commandArgsObject) {
       // get datakey
       final String key = commandArgsObject.getDataKey();
-      return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {
+      return new JedisClusterCommand<List<String>>(connectionHandler, maxAttempts) {
           @Override
-          public String execute(Jedis connection) {
-            return connection.fpwrite(commandArgsObject);
+          public List<String> execute(Jedis connection) {
+            return connection.fpscan(commandArgsObject);
           }
         }.run(key);
-}
+  }
+//  @Override
+//  public Map<String, String> hgetAll(final String key) {
+//    return new JedisClusterCommand<Map<String, String>>(connectionHandler, maxAttempts) {
+//      @Override
+//      public Map<String, String> execute(Jedis connection) {
+//        return connection.hgetAll(key);
+//      }
+//    }.run(key);
+//  }
   @Override
   public String set(final String key, final String value) {
     return new JedisClusterCommand<String>(connectionHandler, maxAttempts) {

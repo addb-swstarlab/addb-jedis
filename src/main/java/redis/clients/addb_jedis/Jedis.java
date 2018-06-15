@@ -139,11 +139,10 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
    * addb JH
    * fpscan
    */
-  @Override
-  public String fpscan(final String key) {
+  public List<String> fpscan(final CommandArgsObject commandArgsObject) {
 	  checkIsInMultiOrPipeline();
-	  client.fpscan(key);
-	  return client.getBulkReply();
+	  client.fpscan(commandArgsObject);
+	  return client.getMultiBulkReply();
   }
   /*
    * addb JH

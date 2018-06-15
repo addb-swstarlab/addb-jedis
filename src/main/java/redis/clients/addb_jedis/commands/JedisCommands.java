@@ -20,8 +20,8 @@ public interface JedisCommands {
 	 * addb JH
 	 * register fpscan, fpwrite commands to JedisCommands
 	 */
-  String fpscan(String key);
-  String fpwrite(CommandArgsObject commandArgsObject);
+//  List<String> fpscan(CommandArgsObject commandArgsObject);
+//  String fpwrite(CommandArgsObject commandArgsObject);
   
   String set(String key, String value);
 

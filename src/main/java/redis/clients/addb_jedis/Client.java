@@ -53,8 +53,10 @@ public class Client extends BinaryClient implements Commands {
    * addb JH
    * add fpscan commands to Client
    */
-  public void fpscan(final String key) {
-	  fpscan(SafeEncoder.encode(key));
+  public void fpscan(final CommandArgsObject commandArgsObject) {
+	  final String key = commandArgsObject.getDataKey();
+	  final String requiredColumnIndice = commandArgsObject.getRequiredColumnIndice();	  
+	  fpscan(SafeEncoder.encode(key), SafeEncoder.encode(requiredColumnIndice));
   }
   /* 
    * addb JH

@@ -19,6 +19,8 @@ public class CommandArgsObject
 	private String partitionInfo;
 	private String columnCount;
 	private List<String> data;
+	
+	private String requiredColumnIndice;
 
 	/*
 	 * Default constructor
@@ -26,13 +28,13 @@ public class CommandArgsObject
 	public CommandArgsObject() {
 		
 	}
-//	public CommandArgsObject(String datakey, RelationInfoPackage relationInfo, List<String> data) {
-//		this.datakey = datakey;
-//		this.relationInfo = new RelationInfoPackage(relationInfo);
-////		this.relationInfo = relationInfo;
-//		this.data = new ArrayList<String>(data);
-////		Collections.copy(this.data, data);
-//	}
+
+	// fpscan
+	public CommandArgsObject(String datakey, String requiredColumnIndice) {
+		this.datakey = datakey;
+		this.requiredColumnIndice = requiredColumnIndice;
+	}
+	// fpwrite
 	public CommandArgsObject(String datakey, String columnCount, String partitionInfo, List<String> data) {
 		this.datakey = datakey;
 		this.partitionInfo = partitionInfo;
@@ -54,6 +56,9 @@ public class CommandArgsObject
 	}
 	public List<String> getData() {
 		return this.data;
+	}
+	public String getRequiredColumnIndice() {
+		return this.requiredColumnIndice;
 	}
 	
 }

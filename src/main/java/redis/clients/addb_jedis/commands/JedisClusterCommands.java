@@ -5,12 +5,22 @@ import redis.clients.addb_jedis.params.GeoRadiusParam;
 import redis.clients.addb_jedis.params.SetParams;
 import redis.clients.addb_jedis.params.ZAddParams;
 import redis.clients.addb_jedis.params.ZIncrByParams;
+import redis.clients.addb_jedis.util.CommandArgsObject;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public interface JedisClusterCommands {
+	
+	/*
+	 * addb JH 
+	 */
+
+  String fpwrite(CommandArgsObject commandArgsObject);
+  
+  
+	
   String set(String key, String value);
 
   String set(String key, String value, SetParams params);

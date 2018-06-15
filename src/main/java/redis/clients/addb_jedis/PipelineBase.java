@@ -24,52 +24,23 @@ public abstract class PipelineBase extends Queable implements BinaryRedisPipelin
    * (non-Javadoc)
    * @see redis.clients.addb_jedis.commands.RedisPipeline#fpscan(java.lang.String)
    */
-  /*
   @Override
-  public Response<String> fpscan(final String key) {
-    getClient(key).fpscan(key);
-    return getResponse(BuilderFactory.STRING);
-  }
-
-  @Override
-  public Response<byte[]> fpscan(final byte[] key) {
-    getClient(key).fpscan(key);
-    return getResponse(BuilderFactory.BYTE_ARRAY);
+  public Response<List<String>> fpscan(final CommandArgsObject commandArgsObject) {
+	  final String key = commandArgsObject.getDataKey();
+	  getClient(key).fpscan(commandArgsObject);
+	  return getResponse(BuilderFactory.STRING_LIST);
   }
   
-  @Override
-  public Response<String> fpwrite(final String key, final String partition, final String numOfColumn, final String indexColumn) {
-    getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);
-    return getResponse(BuilderFactory.STRING);
-  }
-
-  @Override
-  public Response<String> fpwrite(final byte[] key, final byte[] partition, final byte[] numOfColumn, final byte[] indexColumn) {
-    getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);
-    return getResponse(BuilderFactory.STRING);
-  } */
-  @Override
-  public Response<String> fpscan(final String key) {
-	  getClient(key).fpscan(key);
-	  return getResponse(BuilderFactory.STRING);
-  }
-  
-  @Override
-  public Response<byte[]> fpscan(final byte[] key) {
-	  getClient(key).fpscan(key);
-	  return getResponse(BuilderFactory.BYTE_ARRAY);
-  }  
   @Override
   public Response<String> fpwrite(final CommandArgsObject commandArgsObject) {
 	  final String key = commandArgsObject.getDataKey();
 	  getClient(key).fpwrite(commandArgsObject);
 	  return getResponse(BuilderFactory.STRING);
   }
-  
 //  @Override
-//  public Response<String> fpwrite(final byte[] key, final byte[] partition, final byte[] numOfColumn, final byte[] indexColumn) {
-//	  getClient(key).fpwrite(key, partition, numOfColumn, indexColumn);
-//	  return getResponse(BuilderFactory.STRING);
+//  public Response<List<String>> hmget(final String key, final String... fields) {
+//    getClient(key).hmget(key, fields);
+//    return getResponse(BuilderFactory.STRING_LIST);
 //  }
   
   @Override

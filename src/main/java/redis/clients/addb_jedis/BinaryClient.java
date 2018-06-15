@@ -123,19 +123,22 @@ public class BinaryClient extends Connection {
   /*
 	 * addb JH
 	 * fpscan function
-	 * addb/src/t_relational.c
-	 * fpscan Param not yet..
-	 * Thus, test GET command
+	 * addb/src/addb_table.c
+	 * fpscan Param List ==> key : %s, requiredColumnIndice %s
+	 * @param key dataKeyInfo
+	 * @param requiredColumnIndice required column index. delimiter is comma.
 	 */
-	public void fpscan(final byte[] key) {
-//		sendCommand(fpscan);
-		sendCommand(GET, key);
+	public void fpscan(final byte[] key, final byte[] requiredColumnIndice) {
+		final byte[][] parameters = new byte[2][];
+		parameters[0] = key;
+		parameters[1] = requiredColumnIndice;
+		sendCommand(fpscan, parameters);
 	}
 	/*
 	 * addb JH
 	 * fpwrite function
-	 * addb/src/t_relational.c
-	 * 	fpWrite Param List ==> Key : %s, partition :%s, num_of_column : %s, indexColumn : %s, data : %s"
+	 * addb/src/addb_talbe.c
+	 * 	fpwrite Param List ==> key : %s, partition :%s, num of column : %s, indexColumn : %s, data : %s"
 	 * @param key dataKeyInfo
 	 * @param partition partitionInfo
 	 * @param numOfColumn the number of column

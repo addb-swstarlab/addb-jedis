@@ -15,11 +15,14 @@ import redis.clients.addb_jedis.util.SafeEncoder;
 
 public interface Commands {
 	
+	/*
+	 * addb JH
+	 */
   void metakeys(String pattern);
 	
-  void fpscan(final String key); 
+  void fpscan(CommandArgsObject commandArgsObject); 
   
-  void fpwrite(final CommandArgsObject commandArgsObject);
+  void fpwrite(CommandArgsObject commandArgsObject);
 
   void set(String key, String value);
 

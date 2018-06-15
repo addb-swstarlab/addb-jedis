@@ -16,7 +16,7 @@ public interface BinaryRedisPipeline {
 	 * addb JH
 	 * add binary pipeline fp commands
 	 */
-  Response<byte[]> fpscan(byte[] key);
+//  Response<byte[]> fpscan(byte[] key);
 	
 //  Response<String> fpwrite(byte[] key, byte[] partition, byte[] numOfColumn, byte[] indexColumn);
   
