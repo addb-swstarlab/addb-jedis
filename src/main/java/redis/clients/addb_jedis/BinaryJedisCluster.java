@@ -80,7 +80,7 @@ public class BinaryJedisCluster implements BinaryJedisClusterCommands,
   }
 
   @Override
-  public Set<byte[]> metakeys(final byte[] pattern) {
+  public Set<byte[]> metakeys(final byte[] pattern, final byte[] statements) {
 	 System.out.println("metakeys in Binary Jedis Cluster");
     if (pattern == null || pattern.length == 0) {
       throw new IllegalArgumentException(this.getClass().getSimpleName()
@@ -93,7 +93,7 @@ public class BinaryJedisCluster implements BinaryJedisClusterCommands,
     return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxAttempts) {
       @Override
       public Set<byte[]> execute(Jedis connection) {
-        return connection.metakeys(pattern);
+        return connection.metakeys(pattern, statements);
       }
     }.runBinary(pattern);
   }

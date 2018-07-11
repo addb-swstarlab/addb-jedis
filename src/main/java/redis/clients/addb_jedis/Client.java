@@ -45,9 +45,9 @@ public class Client extends BinaryClient implements Commands {
   }
   
   @Override
-  public void metakeys(final String pattern) {
+  public void metakeys(final String pattern, final String statements) {
 	 System.out.println("metakeys in Client");
-    metakeys(SafeEncoder.encode(pattern));
+    metakeys(SafeEncoder.encode(pattern), SafeEncoder.encode(statements));
   }
   /* 
    * addb JH

@@ -179,10 +179,10 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
    * metakeys
    */
   @Override
-  public Set<byte[]> metakeys(final byte[] pattern) {
+  public Set<byte[]> metakeys(final byte[] pattern, final byte[] statements) {
 	 System.out.println("metakeys in Binary Jedis");
     checkIsInMultiOrPipeline();
-    client.metakeys(pattern);
+    client.metakeys(pattern, statements);
     return SetFromList.of(client.getBinaryMultiBulkReply());
   }
   

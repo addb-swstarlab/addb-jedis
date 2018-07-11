@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface MultiKeyJedisClusterCommands {
-  Set<String> metakeys(String pattern);
+  Set<String> metakeys(String pattern, String statements);
   
   Long del(String... keys);
 

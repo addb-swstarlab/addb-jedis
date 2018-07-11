@@ -104,7 +104,7 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
 }
 
   @Override
-  public Set<String> metakeys(final String pattern) {
+  public Set<String> metakeys(final String pattern, final String statements) {
 	   System.out.println("metakeys in Jedis Cluster");
     if (pattern == null || pattern.isEmpty()) {
       throw new IllegalArgumentException(this.getClass().getSimpleName()
@@ -117,7 +117,7 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
     return new JedisClusterCommand<Set<String>>(connectionHandler, maxAttempts) {
       @Override
       public Set<String> execute(Jedis connection) {
-        return connection.metakeys(pattern);
+        return connection.metakeys(pattern, statements);
       }
     }.run(pattern);
   }

@@ -17,8 +17,8 @@ public interface Commands {
 	
 	/*
 	 * addb JH
-	 */
-  void metakeys(String pattern);
+	 */	
+  void metakeys(String pattern, String statements);
 	
   void fpscan(CommandArgsObject commandArgsObject); 
   

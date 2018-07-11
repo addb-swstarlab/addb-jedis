@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public interface MultiKeyBinaryRedisPipeline {
 
-  Response<Set<byte[]>> metakeys(byte[] pattern);
+  Response<Set<byte[]>> metakeys(byte[] pattern, byte[] statements);
 	
   Response<Long> del(byte[]... keys);
 

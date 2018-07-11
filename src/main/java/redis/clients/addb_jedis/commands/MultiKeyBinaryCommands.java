@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface MultiKeyBinaryCommands {
 
-  Set<byte[]> metakeys(byte[] pattern);	
+  Set<byte[]> metakeys(byte[] pattern, byte[] statements);	
 	
   Long del(byte[]... keys);
 

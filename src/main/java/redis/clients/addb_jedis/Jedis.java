@@ -128,10 +128,10 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
    */
   
   @Override
-  public Set<String> metakeys(String pattern) {
+  public Set<String> metakeys(String pattern, String statements) {
 	 System.out.println("metakeys in Jedis");
     checkIsInMultiOrPipeline();
-    client.metakeys(pattern);
+    client.metakeys(pattern, statements);
     return BuilderFactory.STRING_SET.build(client.getBinaryMultiBulkReply());
   }
 

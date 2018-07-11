@@ -111,13 +111,20 @@ public class BinaryClient extends Connection {
   /*
 	 * addb WK
 	 * metakeys function
-	 * addb/src/t_relational.c
-	 * fpscan Param not yet..
+	 * addb/src/addb_table.c
 	 * Thus, test KEYS command
 	 */
-  public void metakeys(final byte[] pattern) {
+  public void metakeys(final byte[] pattern, final byte[] statements) {
 	   System.out.println("metakeys in Binary Client");
-	    sendCommand(METAKEYS, pattern);
+//	   System.out.println("statemements: '"+ statements+ "'");	   
+//	   if (statements.length == 0) {
+		if (statements.length == 0) {
+//			System.out.println("metakeys is null");	   
+		   sendCommand(METAKEYS, pattern);
+	   } else {
+//		   System.out.println("metakeys is not null");	   
+		   sendCommand(METAKEYS, pattern, statements);
+	   }
 	  }
 
   /*
